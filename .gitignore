@@ -1,0 +1,7 @@
+models
+output
+vendor_tts/
+helper/raw_data.py
+helper/tokenizer.py
+frontend
+.venv
