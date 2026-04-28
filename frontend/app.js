@@ -24,7 +24,7 @@ const setAndPlayAudio = async (rawAudioUrl) => {
         result.textContent = `${result.textContent}\n\nAutoplay blocked by browser. Press play on audio player.`;
     }
 };
-
+//example buttons to fill text input
 exampleButtons.forEach((button) => {
     button.addEventListener("click", () => {
         textInput.value = button.dataset.text || "";
