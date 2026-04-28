@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangla TTS</title>
+    <link rel="stylesheet" href="/frontend/style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>Bangla TTS</h1>
+        <p class="subtitle">Choose a voice, click an example text, and generate audio.</p>
+
+        <form id="ttsForm" class="card">
+            <label for="gender">Voice Model</label>
+            <select id="gender" name="gender">
+                <option value="female" selected>Female</option>
+                <option value="male">Male</option>
+            </select>
+
+            <label>Example Commands</label>
+            <div class="examples" id="exampleCommands">
+                <button type="button" class="example-btn" data-text="আমি বাংলা বলতে পারি।">আমি বাংলা বলতে পারি।</button>
+                <button type="button" class="example-btn" data-text="আজকের আবহাওয়া বেশ সুন্দর।">আজকের আবহাওয়া বেশ
+                    সুন্দর।</button>
+                <button type="button" class="example-btn" data-text="বাংলা টিটিএস মডেলটি খুব দ্রুত কাজ করছে।">বাংলা
+                    টিটিএস মডেলটি খুব দ্রুত কাজ করছে।</button>
+            </div>
+
+            <label for="text">Bangla Text</label>
+            <textarea id="text" name="text" rows="6" placeholder="আমি বাংলা বলতে পারি।" required></textarea>
+
+            <label for="saveDir">Save Directory</label>
+            <input id="saveDir" name="saveDir" type="text" value="output">
+
+            <button id="submitBtn" type="submit">Generate Audio</button>
+        </form>
+
+        <form id="talkForm" class="card">
+            <h2>AI Talking Pipeline</h2>
+            <p class="subtitle">Generate reply with DeepSeek, ChatGPT, Gemini, or Grok and speak it with your TTS voice.
+            </p>
+
+            <label for="provider">Chat Provider</label>
+            <select id="provider" name="provider">
+                <option value="deepseek" selected>DeepSeek</option>
+                <option value="chatgpt">ChatGPT</option>
+                <option value="gemini">Gimini (Gemini)</option>
+                <option value="grok">Grock (Grok)</option>
+            </select>
+
+            <label for="model">Model (optional override)</label>
+            <input id="model" name="model" type="text" placeholder="Leave empty for default model">
+
+            <label for="talkPrompt">Prompt</label>
+            <textarea id="talkPrompt" name="talkPrompt" rows="4" maxlength="160"
+                placeholder="বাংলায় একটি ছোট প্রশ্ন বা নির্দেশ লিখো।" required></textarea>
+            <p class="helper-text">Bangla only, up to 160 characters.</p>
+
+            <button id="talkSubmitBtn" type="submit">Ask AI + Speak</button>
+        </form>
+
+        <section class="card">
+            <h2>Result</h2>
+            <pre id="result">No request yet.</pre>
+            <div id="playerWrap" class="player-wrap hidden">
+                <p class="player-label">Generated Audio</p>
+                <audio id="audioPlayer" controls preload="auto"></audio>
+            </div>
+        </section>
+    </main>
+
+    <script src="/frontend/app.js"></script>
+</body>
+
+</html>
